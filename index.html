@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    
+<div class="slide-zone">    
+    
+    <!-- 白色で両端を隠す -->
+    <div class="whitebox_left">
+    </div>
+    <div class="whitebox_right">
+    </div>
+
+    <!-- ドラム画像 -->
+    <img class="drum-img" src="img/mato.png" alt="">
+
+</div>
+
+
+<!-- ビデオ -->
+<div class="video-zone">
+    <video id="video" width="700" height="350">
+        <source src="video/video.MOV">
+        <p>ご使用のブラウザでは動画再生に対応していません</p>
+    </video>
+
+
+    <!-- <iframe id="player" width="560" height="315" 
+    src="https://www.youtube.com/embed/E7NTck8ViIo?enablejsapi=1&showinfo=0&modestbranding=1&controls=0&amp;start=5&end=65" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+</div>
+
+
+<!-- スタートボタン -->
+<div class="start">
+    <button id="btn_play" class="btn gradient2">START</button>
+</div>
+
+
+
+<!-- 説明 -->
+<p class="rule">
+太鼓の達人風なゲームです。
+かわいい動物がマトに入ったタイミングでEnterキーを押してみてね！
+</p>
+
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
