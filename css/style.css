@@ -20,12 +20,12 @@
   position: absolute;
   }
 
-.whitebox_left{
-    width: 50px;
+.player-img{
+    width: 200px;
     height: 300px;
     top: 0;
     left: 0;
-    background: #FFF;
+    /* background: #FFF; */
     z-index: 10;
     position: absolute;
 }

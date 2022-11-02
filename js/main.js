@@ -107,7 +107,7 @@ function success_anime() {
         $(".drum-img").attr("src","img/mato.png");            
         }, 100);
     }
-function fall_anime{
+function fall_anime(){
     $(".player-img").attr("src","img/player-fall.png");
     setTimeout(function(){
         $(".player-img").attr("src","img/player.png");            
@@ -157,62 +157,7 @@ $(window).on('keydown', function(e) {
 
 // ここまで
 
-// ここからeachメソッドおためし
-function success_anime() {
-    $(".drum-img").attr("src","img/success.png");
-    setTimeout(function(){
-        $(".drum-img").attr("src","img/mato.png");            
-        }, 100);
-    }
-function fall_anime{
-    $(".player-img").attr("src","img/player-fall.png");
-    setTimeout(function(){
-        $(".player-img").attr("src","img/player.png");            
-        }, 100);
-    }
 
-$(window).on('keydown', function(e) {
-    const pos_drum = $(".drum-img").offset();
-    const pos_item0 = $("#slide-img0").offset();
-    var src = $("#slide-img0").attr('src');
-    console.log(src);
-
-    // 条件1.的に動物がいる
-    if(pos_item0.left >= pos_drum.left+37.5
-    && pos_item0.left <= pos_drum.left+112.5){
-        // 条件2.画像と押したキーが同じ
-        if(src === 'img/chick.png' && e.keyCode === 13){
-        success_anime();
-        // HP変更
-        // //////////////////
-        }
-        else if(src === 'img/dog.png' && e.keyCode === 38){
-        success_anime();
-        // HP変更
-        // //////////////////
-        }
-        else if(src === 'img/cat.png' && e.keyCode === 40){
-            success_anime();
-            // HP変更
-            // //////////////////
-            }
-        else if(src === 'img/horse.png' && e.keyCode === 37){
-            success_anime();
-            // HP変更
-            // //////////////////
-            }
-        else if(src === 'img/pig.png' && e.keyCode === 39){
-            success_anime();
-            // HP変更
-            // //////////////////
-            }
-        }
-    else{
-    fall_anime();
-    }
-});
-
-// ここまで
 
 
 // $(window).on('keydown', function(e) {
