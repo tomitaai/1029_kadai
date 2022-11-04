@@ -1,5 +1,4 @@
 let lifePoint = 0;
-let olife = 100;
 
 // ライフゲージ（プレイヤー）＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
@@ -10,6 +9,7 @@ let plife = 100;
 // ライフゲージ（鬼）＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 const olifeBar = document.querySelector(".oni-life-bar");
+let olife = 100;
 const olifeMark = document.querySelector(".oni-life-mark");
 
 // ■■■■■■スタートボタンを押したとき実行■■■■■■
@@ -52,13 +52,25 @@ $("#btn_play").on("click", function () {
             console.log(i, "番号", random, "乱数", slide_img_src, "画像");
             // 乱数から取得した画像に変更
             $("#slide-img" + i).attr("src", "img/" + slide_img_src);
-            // 0.2秒ごとに画像を横スライド
+            // 0.4秒ごとに画像を横スライド
             (function (i) {
                 setTimeout(function () {
-                    $("#slide-img" + i).animate(
+                    $("#slide-img" + i).stop().animate(
                         { right: 1150 },
                         3000,
-                        "linear"
+                        "linear",
+                        function(){
+                            if ($("#slide-img" + i).attr("src") === "img/chick.png") {
+                            plife_damage();
+                            } else if ($("#slide-img" + i).attr("src") === "img/dog.png") {
+                            plife_damage();
+                            } else if ($("#slide-img" + i).attr("src") === "img/cat.png") {
+                                plife_damage();
+                            } else if ($("#slide-img" + i).attr("src") === "img/horse.png") {
+                                plife_damage();
+                            } else if ($("#slide-img" + i).attr("src") === "img/pig.png") {
+                                plife_damage();
+                        };}
                     );
                 }, 400 * i);
             })(i);
@@ -129,117 +141,100 @@ $(window).on("keydown", function (e) {
 
     // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
-    // 条件1.的に動物がいる
-    if (
-        pos_item0.left >= pos_drum.left + 37.5 &&
-        pos_item0.left <= pos_drum.left + 112.5
-    ) {
-        // 条件2.画像と押したキーが同じ
-        if (src0 === "img/chick.png" && e.keyCode === 13) {
-            success_anime();
-        } else if (src0 === "img/dog.png" && e.keyCode === 38) {
-            success_anime();
-        } else if (src0 === "img/cat.png" && e.keyCode === 40) {
-            success_anime();
-        } else if (src0 === "img/horse.png" && e.keyCode === 37) {
-            success_anime();
-        } else if (src0 === "img/pig.png" && e.keyCode === 39) {
-            success_anime();
-        } else {
-            plife_damage();
-        }
-    } else {
-    }
-    console.log(olife);
-    // ここから繰り返し ここを何とかしたいです＝＝＝＝＝＝＝＝＝＝＝＝＝
+    correctCheck(pos_item0, pos_drum, src0, e, 0);
 
-    // なんとかしてみました。
-    // 同じような挙動を保っているかなと思います
-    correctCheck(pos_item1, pos_drum, src1, e);
+    correctCheck(pos_item1, pos_drum, src1, e, 1);
 
-    correctCheck(pos_item2, pos_drum, src2, e);
+    correctCheck(pos_item2, pos_drum, src2, e, 2);
 
-    correctCheck(pos_item3, pos_drum, src3, e);
+    correctCheck(pos_item3, pos_drum, src3, e, 3);
 
-    correctCheck(pos_item4, pos_drum, src4, e);
+    correctCheck(pos_item4, pos_drum, src4, e, 4);
 
-    correctCheck(pos_item5, pos_drum, src5, e);
+    correctCheck(pos_item5, pos_drum, src5, e, 5);
 
-    correctCheck(pos_item6, pos_drum, src6, e);
+    correctCheck(pos_item6, pos_drum, src6, e, 6);
 
-    correctCheck(pos_item7, pos_drum, src7, e);
+    correctCheck(pos_item7, pos_drum, src7, e, 7);
 
-    correctCheck(pos_item8, pos_drum, src8, e);
+    correctCheck(pos_item8, pos_drum, src8, e, 8);
 
-    correctCheck(pos_item9, pos_drum, src9, e);
+    correctCheck(pos_item9, pos_drum, src9, e, 9);
 
-    correctCheck(pos_item10, pos_drum, src10, e);
+    correctCheck(pos_item10, pos_drum, src10, e, 10);
 
-    correctCheck(pos_item11, pos_drum, src11, e);
+    correctCheck(pos_item11, pos_drum, src11, e, 11);
 
-    correctCheck(pos_item12, pos_drum, src12, e);
+    correctCheck(pos_item12, pos_drum, src12, e, 12);
 
-    correctCheck(pos_item13, pos_drum, src13, e);
+    correctCheck(pos_item13, pos_drum, src13, e, 13);
 
-    correctCheck(pos_item13, pos_drum, src13, e);
-    correctCheck(pos_item14, pos_drum, src14, e);
-    correctCheck(pos_item15, pos_drum, src15, e);
-    correctCheck(pos_item16, pos_drum, src16, e);
-    correctCheck(pos_item17, pos_drum, src17, e);
-    correctCheck(pos_item18, pos_drum, src18, e);
-    correctCheck(pos_item19, pos_drum, src19, e);
-    correctCheck(pos_item20, pos_drum, src20, e);
-    correctCheck(pos_item21, pos_drum, src21, e);
-    correctCheck(pos_item22, pos_drum, src22, e);
-    correctCheck(pos_item23, pos_drum, src23, e);
-    correctCheck(pos_item24, pos_drum, src24, e);
-    correctCheck(pos_item25, pos_drum, src25, e);
+    correctCheck(pos_item14, pos_drum, src14, e, 14);
+    correctCheck(pos_item15, pos_drum, src15, e, 15);
+    correctCheck(pos_item16, pos_drum, src16, e, 16);
+    correctCheck(pos_item17, pos_drum, src17, e, 17);
+    correctCheck(pos_item18, pos_drum, src18, e, 18);
+    correctCheck(pos_item19, pos_drum, src19, e, 19);
+    correctCheck(pos_item20, pos_drum, src20, e, 20);
+    correctCheck(pos_item21, pos_drum, src21, e, 21);
+    correctCheck(pos_item22, pos_drum, src22, e, 22);
+    correctCheck(pos_item23, pos_drum, src23, e, 23);
+    correctCheck(pos_item24, pos_drum, src24, e, 24);
+    correctCheck(pos_item25, pos_drum, src25, e, 25);
 });
 
 // ■■■■■■キーダウンされたとき終了■■■■■■
 
-function correctCheck(pos_item, pos_drum, src, e) {
+// 条件1.的に動物がいる
+// 条件2.画像と押したキーが同じ
+
+function correctCheck(pos_item, pos_drum, src, e, i) {
     if (
         pos_item.left >= pos_drum.left + 37.5 &&
         pos_item.left <= pos_drum.left + 112.5
     ) {
         if (src === "img/chick.png" && e.keyCode === 13) {
             success_anime();
+            $("#slide-img" + i).stop(false, false);
+            $("#slide-img" + i).hide();
         } else if (src === "img/dog.png" && e.keyCode === 38) {
             success_anime();
+            $("#slide-img" + i).stop(false, false);
+            $("#slide-img" + i).hide();
         } else if (src === "img/cat.png" && e.keyCode === 40) {
             success_anime();
+            $("#slide-img" + i).stop(false, false);
+            $("#slide-img" + i).hide();
         } else if (src === "img/horse.png" && e.keyCode === 37) {
             success_anime();
+            $("#slide-img" + i).stop(false, false);
+            $("#slide-img" + i).hide();
         } else if (src === "img/pig.png" && e.keyCode === 39) {
             success_anime();
+            $("#slide-img" + i).stop(false, false);
+            $("#slide-img" + i).hide();
         } else {
-            plife_damage();
         }
     } else {
     }
     console.log("lifePoint", lifePoint);
 }
 
-// onclick内から外に出しました。
-// 理由としては上記のcorrectCheckから関数を呼び出す時に
-// アクセスできない位置だったためです
+
 function success_anime() {
     $(".drum-img").attr("src", "img/success.png");
     setTimeout(function () {
         $(".drum-img").attr("src", "img/mato.png");
     }, 100);
-    olife_damage(30);
+    olife_damage(10);
 
     // ここを勝手に追記
-    lifePoint = lifePoint + 100;
-    console.log("ライフプラス");
+    // lifePoint = lifePoint + 100;
+    // console.log("ライフプラス");
 }
 
-// correctCheckを外に出したことでこの関数も外に出して
-// correctCheckからアクセスできるようにしました;
 function plife_damage() {
-    plife -= 20;
+    plife -= 10;
     if (plife <= 0) {
         // 0 以下は光部分を非表示
         plife = 0;
@@ -247,18 +242,18 @@ function plife_damage() {
             plifeMark.style.visibility = "hidden";
         }, 300);
     }
-    // ライフゲージを変更する
+                    
+        
+        // ライフゲージを変更する
     plifeBar.style.width = plife + "%";
     $(".p-p").html("<p>プレイヤー ライフ</p>" + plife + "%");
     $(".player-img").fadeOut(100).fadeIn(100);
 
     // ここを勝手に追記
-    lifePoint = lifePoint - 100;
-    console.log("ライフマイナス");
+    // lifePoint = lifePoint - 100;
+    // console.log("ライフマイナス");
 }
 
-// correctCheckを外に出したことでこの関数も外に出して
-// correctCheckからアクセスできるようにしました;
 function olife_damage(value) {
     olife -= value;
     if (olife <= 0) {
